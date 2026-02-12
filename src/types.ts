@@ -1,3 +1,5 @@
+import type { RadarError } from './errors';
+
 export type LogLevel = 'none' | 'info' | 'warn' | 'error'
 
 export interface Location {
@@ -584,10 +586,10 @@ export interface RadarAutocompleteUIOptions extends Omit<RadarAutocompleteParams
   threshold?: number,
   minCharacters?: number, // Minimum number of characters to trigger autocomplete
   placeholder?: string, // Placeholder text for the input field
-  onSelection?: (selection: any) => void,
+  onSelection?: (selection: RadarAutocompleteAddress) => void,
   onRequest?: (params: RadarAutocompleteParams) => void,
-  onResults?: (results: any[]) => void,
-  onError?: (error: any) => void,
+  onResults?: (results: RadarAutocompleteAddress[]) => void,
+  onError?: (error: RadarError) => void,
   disabled?: boolean,
   responsive?: boolean;
   width?: string | number;
